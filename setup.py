@@ -5,17 +5,18 @@ here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.txt')).read()
 CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 
-required = ['pyramid',
-            'pyramid_jinja2',
-            'Werkzeug',
-            'SQLAlchemy',
-            'repoze.tm2',
-            'zope.sqlalchemy']
+required = [
+    'pyramid >= 1.0',
+    'pyramid_jinja2',
+    'Khufu-SQLAHelper',
+    'Khufu-Script',
+    'WebError',
+]
 
 setup(name='RapidGiza',
-      version='0.1.4',
+      version='0.2',
       description='Set of paster templates for rapid Pyramid development',
-      long_description=README + '\n\n' +  CHANGES,
+      long_description=README + '\n\n' + CHANGES,
       classifiers=[
         "Intended Audience :: Developers",
         "Programming Language :: Python",
@@ -26,13 +27,13 @@ setup(name='RapidGiza',
         ],
       author='Rocky Burt',
       author_email='rocky@serverzen.com',
-      url='http://dist.serverzen.com/pypi/d/rapidgiza/',
-      keywords='web wsgi bfg pylons pyramid',
+      url='https://bitbucket.org/rockyburt/rapidgiza',
+      keywords='web wsgi bfg pylons pyramid sqlalchemy khufu jinja2',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
       install_requires=required,
-      entry_points = """\
+      entry_points="""
         [paste.paster_create_template]
         rapidgiza=rapidgiza.paster:RapidGizaProjectTemplate
       """
