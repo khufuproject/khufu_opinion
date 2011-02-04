@@ -1,0 +1,35 @@
+<!doctype html>  
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame  -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{{project}}</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{{request.application_url}}/static/favicon.ico" />
+  <link rel="stylesheet" href="{{request.application_url}}/static/style.css?v=2">
+  <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+  <script src="{{request.application_url}}/static/modernizr-1.6.min.js"></script>
+</head>
+<body>
+  <header>
+  </header>
+    
+  <div id="main">
+    {% block main %}
+    {% endblock %}
+  </div>
+    
+  <footer>
+    <div class="copyright">© Copyright 2008-2010, Agendaless Consulting.</div>
+  </footer>
+</body>
+</html>
