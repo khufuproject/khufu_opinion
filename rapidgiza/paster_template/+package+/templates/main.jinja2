@@ -1,18 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:tal="http://xml.zope.org/namespaces/tal">
-<head>
-  <title>The Pyramid Web Application Development Framework</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
-  <meta name="keywords" content="python web application" />
-  <meta name="description" content="pyramid web application" />
-  <link rel="shortcut icon" href="{{static}}/favicon.ico" />
-  <link rel="stylesheet" href="{{static}}/pylons.css" type="text/css" media="screen" charset="utf-8" />
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton|Nobile:regular,i,b,bi&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
-  <!--[if lte IE 6]>
-  <link rel="stylesheet" href="{{static}}/ie6.css" type="text/css" media="screen" charset="utf-8" />
-  <![endif]-->
-</head>
-<body>
+{% extends "layout.jinja2" %}
+{% block main %}
   <div id="wrap">
     <div id="top">
       <div class="top align-center">
@@ -71,5 +58,4 @@
   <div id="footer">
     <div class="footer">&copy; Copyright 2008-2011, Agendaless Consulting.</div>
   </div>
-</body>
-</html>
+{% endblock %}
