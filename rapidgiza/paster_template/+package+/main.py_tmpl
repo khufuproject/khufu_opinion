@@ -1,59 +1,43 @@
-from {{package}} import make_app, init_settings
-from {{package}} import models
+from pyramid.config import Configurator
+from khufu import script
+from khufu import sqlahelper
 
-import logging
-
-from werkzeug import script, serving
+from {{package}} import traversal
 
 
-def init_logging(verbosity):
-    logging.getLogger('werkzeug').setLevel(logging.WARNING)
-    logging.getLogger('{{package}}').setLevel(logging.WARNING)
+def make_app(global_conf, **kwargs):
+    settings = dict(global_conf)
+    settings.update(kwargs)
 
-    if verbosity >= 1:
-        logging.getLogger('werkzeug').setLevel(logging.INFO)
-        logging.getLogger('{{package}}').setLevel(logging.INFO)
-    if verbosity >= 2:
-        logging.getLogger('sqlalchemy.engine').setLevel(logging.INFO)
-        logging.getLogger('{{package}}').setLevel(logging.DEBUG)
-    if verbosity >= 3:
-        logging.getLogger('sqlalchemy.dialects').setLevel(logging.INFO)
-        logging.getLogger('sqlalchemy.pool').setLevel(logging.INFO)
-        logging.getLogger('sqlalchemy.orm').setLevel(logging.INFO)
-    if verbosity >= 4:
-        logging.getLogger('werkzeug').setLevel(logging.DEBUG)
-        logging.getLogger('sqlalchemy.engine').setLevel(logging.DEBUG)
-        logging.getLogger('sqlalchemy.dialects').setLevel(logging.DEBUG)
-        logging.getLogger('sqlalchemy.pool').setLevel(logging.DEBUG)
-        logging.getLogger('sqlalchemy.orm').setLevel(logging.DEBUG)
+    settings[sqlahelper.SQLALCHEMY_URL] = 'sqlite:///{{package}}.db'
+    settings['jinja2.directories'] = settings.get('jinja2.directories', '') \
+        + '\n{{package}}:templates'
+    config = Configurator(root_factory=traversal.get_root,
+                          settings=settings)
+    config.add_static_view('{{package}}-static', '{{package}}:static')
+    config.scan('{{package}}')
+    config.include('pyramid_jinja2')
+    config.include('khufu.sqlahelper')
+    pyramid_app = config.make_wsgi_app()
+    app = sqlahelper.with_db(pyramid_app)
+    app.registry = pyramid_app
+    return app
+
 
 def main():
+    import logging
+    from weberror.evalexception import make_eval_exception
+    logging.basicConfig()
 
-    def action_runserver(hostname=('h', '0.0.0.0'), port=('p', 8080),
-                         debug=('d', False), verbosity=('v', 0)):
-        '''Run the development server.
+    global_conf = {}
 
-        :param debug: run in debug mode
-        :param verbosity: increase level of logging for more verbose logging
-        '''
- 
-        logging.basicConfig()
-        init_logging(verbosity)
+    def appmaker():
+        return make_eval_exception(make_app(global_conf), global_conf)
 
-        serving.run_simple(hostname, port,
-                           make_app({'reload_templates': debug,
-                                     'reload_resources': debug}),
-                           use_reloader=debug,
-                           use_debugger=debug,
-                           use_evalex=debug)
-
-    def action_syncdb():
-        '''Ensure tables exist in the configured database.
-        '''
-        settings = init_settings()
-        models.Base.metadata.create_all(settings['{{package}}.db_engine'])
-
-    script.run()
+    commander = script.Commander(
+        [script.make_reloadable_server_command(appmaker)])
+    commander.scan(globals())
+    commander.run()
 
 
 if __name__ == '__main__':

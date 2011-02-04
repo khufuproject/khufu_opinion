@@ -88,7 +88,7 @@ based on the Django templating language.
 
 RapidGiza produces two template files by default, one containing
 the overall layout called, ``layout.jinja2`` and one for the default main
-page called, ``main.jinja2``.  These pages include html5 markup by default.
+page called, ``main.jinja2``.
 
 Data Access
 -----------

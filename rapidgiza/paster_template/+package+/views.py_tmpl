@@ -3,6 +3,7 @@ from pyramid.view import view_config
 
 
 @view_config(context=traversal.Root,
-             renderer='main.html')
-def my_view(request):
-    return {'project' :'{{project}}'}
+             renderer='main.jinja2')
+def main(request):
+    return {'project': '{{project}}',
+            'static': request.application_url+'/{{package}}-static'}

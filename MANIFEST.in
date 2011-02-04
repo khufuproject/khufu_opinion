@@ -1,2 +1,2 @@
-recursive-include rapidgiza *.ini *.html *.css *.png *.ico *.gif *.py_tmpl *.ini_tmpl *.html_tmpl *.txt_tmpl *.wsgi_tmpl *.in_tmpl *.js
+recursive-include rapidgiza *.ini *.jinja2 *.css *.png *.ico *.gif *.py_tmpl *.ini_tmpl *.jinja2_tmpl *.txt_tmpl *.wsgi_tmpl *.in_tmpl *.js
 include *.txt

@@ -1,12 +1,6 @@
 [DEFAULT]
 debug = true
 
-[app:pyramid-{{project}}]
-use = egg:{{project}}#pyramid-app
-reload_templates = true
-debug_authorization = false
-debug_notfound = false
-
 [app:main]
 use = egg:{{project}}#app
 
