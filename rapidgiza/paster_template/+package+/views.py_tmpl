@@ -1,4 +1,4 @@
-from {{package}} import traversal
+from {{package}} import models, traversal
 from pyramid.view import view_config
 
 
@@ -7,3 +7,12 @@ from pyramid.view import view_config
 def main(request):
     return {'project': '{{project}}',
             'static': request.application_url+'/{{package}}-static'}
+
+
+## example view
+# @view_config(context=traversal.Root,
+#              name='mydata.html',
+#              renderer='mydata.jinja2')
+# def mydataview(request):
+#     mydata = request.db.query(models.MyDataModel).all()
+#     return {'mydata': mydata}
