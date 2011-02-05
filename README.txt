@@ -134,3 +134,4 @@ Credits
 .. _virtualenv: http://pypi.python.org/pypi/virtualenv
 .. _transaction: http://pypi.python.org/pypi/transaction
 .. _`repoze.tm2`: http://pypi.python.org/pypi/repoze.tm2
+.. _`Khufu-Script`: http://pypi.python.org/pypi/Khufu-Script
