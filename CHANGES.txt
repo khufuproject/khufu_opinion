@@ -3,9 +3,12 @@
 Changes
 =======
 
-0.2 - unreleased
-----------------
+0.2 - Feb 5, 2011
+-----------------
 
+  * switched from Werkzeug to Khufu-Script
+
+  * now using Khufu-SQLAHelper
   
 
 0.1.4 - Dec 1, 2010
