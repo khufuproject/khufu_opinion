@@ -3,20 +3,22 @@
 Introduction
 ============
 
-RapidGiza is a set of Paster templates that provide out of the box:
+RapidGiza_ is a set of paster templates for rapid Pyramid development.  It
+makes several framework choices for the developer which are:
 
-  * An application based on the Pyramid_ web application framework
+  * Pyramid_ for the underlying web framework
 
-  * Default SQLAlchemy_ engine/session-factory setup
+    - traversal based url routing
 
-  * All ``.jinja2`` files matched as Jinja2_ templates
+  * Jinja2_ for the page template language (similar to Django templates)
 
-  * Khufu-Script_ setup for running the app in development mode
+  * SQLAlchemy_ for ORM-based relational database persistence
+
 
 Important URL's
 ---------------
 
-  * Project Location - https://bitbucket.org/rockyburt/rapidgiza
+  * Source Control - https://bitbucket.org/rockyburt/rapidgiza
 
   * PyPi Entry - http://pypi.python.org/pypi/RapidGiza
 
@@ -61,11 +63,20 @@ directory.  This can be used with the standard ``paster`` commands::
   # use the pyramid pshell command
   paster --plugin=pyramid pshell development.ini pyramid-Something
 
-Apache mod_wsgi
----------------
+Deployment with Apache+mod_wsgi
+-------------------------------
 
 There is a preconfigured ``Something.wsgi`` file generated which
 is necessary for plugging your app into a mod_wsgi environment.
+
+A simple apache virtualhost entry will look like this::
+
+  <VirtualHost *:80>
+      ServerName www.something.com
+  
+      WSGIScriptAlias / /path/to/Something.wsgi
+  </VirtualHost>
+
 
 Developing With the New Project
 ===============================
@@ -73,7 +84,7 @@ Developing With the New Project
 Base Framework
 --------------
 
-RapidGiza is based on the amazing Pyramid_ web application
+RapidGiza is based on the Pyramid_ web application
 framework.  As such, the Pyramid_ api will always be
 the go-to api for working with the web application.  Please
 see the `Pyramid docs`_ for further details.
@@ -135,3 +146,4 @@ Credits
 .. _transaction: http://pypi.python.org/pypi/transaction
 .. _`repoze.tm2`: http://pypi.python.org/pypi/repoze.tm2
 .. _`Khufu-Script`: http://pypi.python.org/pypi/Khufu-Script
+.. _RapidGiza: http://pypi.python.org/pypi/RapidGiza
