@@ -14,7 +14,7 @@ required = [
 ]
 
 setup(name='RapidGiza',
-      version='0.2',
+      version='0.2.1',
       description='Set of paster templates for rapid Pyramid development',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
@@ -27,7 +27,7 @@ setup(name='RapidGiza',
         ],
       author='Rocky Burt',
       author_email='rocky@serverzen.com',
-      url='https://bitbucket.org/rockyburt/rapidgiza',
+      url='https://github.com/serverzen/RapidGiza',
       keywords='web wsgi bfg pylons pyramid sqlalchemy khufu jinja2',
       packages=find_packages(),
       include_package_data=True,

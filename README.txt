@@ -18,7 +18,7 @@ makes several framework choices for the developer which are:
 Important URL's
 ---------------
 
-  * Source Control - https://bitbucket.org/rockyburt/rapidgiza
+  * Source Control - https://github.com/serverzen/RapidGiza
 
   * PyPi Entry - http://pypi.python.org/pypi/RapidGiza
 
