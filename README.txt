@@ -3,7 +3,7 @@
 Introduction
 ============
 
-RapidGiza_ is a set of paster templates for rapid Pyramid development.  It
+khufu_opinion_ is a set of paster templates for rapid Pyramid development.  It
 makes several framework choices for the developer which are:
 
   * Pyramid_ for the underlying web framework
@@ -18,18 +18,18 @@ makes several framework choices for the developer which are:
 Important URL's
 ---------------
 
-  * Source Control - https://github.com/serverzen/RapidGiza
+  * Source Control - https://github.com/serverzen/khufu_opinion
 
-  * PyPi Entry - http://pypi.python.org/pypi/RapidGiza
+  * PyPi Entry - http://pypi.python.org/pypi/khufu_opinion
 
 Setting up a New Project
 ========================
 
-Install RapidGiza into a Python environment (ie virtualenv_) with a working
-Paster.  Once this has been done, you can create a new RapidGiza project
+Install khufu_opinion into a Python environment (ie virtualenv_) with a working
+Paster.  Once this has been done, you can create a new khufu_opinion project
 by simply running (where *Something* is the name of your new egg)::
 
-  paster create -t rapidgiza Something
+  paster create -t khufu_opinion Something
 
 Once the template egg has been created you should set it up in develop
 mode to start working on your project.
@@ -84,7 +84,7 @@ Developing With the New Project
 Base Framework
 --------------
 
-RapidGiza is based on the Pyramid_ web application
+khufu_opinion is based on the Pyramid_ web application
 framework.  As such, the Pyramid_ api will always be
 the go-to api for working with the web application.  Please
 see the `Pyramid docs`_ for further details.
@@ -97,7 +97,7 @@ the ``Something/something/templates`` directory will be rendered using
 the Jinja2_ templating system.  This template language is
 based on the Django templating language.
 
-RapidGiza produces two template files by default, one containing
+khufu_opinion produces two template files by default, one containing
 the overall layout called, ``layout.jinja2`` and one for the default main
 page called, ``main.jinja2``.
 
@@ -105,10 +105,10 @@ Data Access
 -----------
 
 All data access is handled by the SQLAlchemy_ ORM_ framework which wraps
-relational databases.  Out of the box, any new project created by RapidGiza
+relational databases.  Out of the box, any new project created by khufu_opinion
 will have a SQLAlchemy_ database session factory setup.
 
-RapidGiza puts the orm model classes inside the ``models.py`` Python
+khufu_opinion puts the orm model classes inside the ``models.py`` Python
 file.  The active database session can always be retrieved as the ``db``
 attribute on the ``request`` object.
 
@@ -119,7 +119,7 @@ Transactions are used to ensure all or nothing is performed.  With the
 very useful `repoze.tm2`_ and transaction_ packages this can
 be accomplished easily in Pyramid_ applications.
 
-RapidGiza ensures all requests join a new transaction so that if
+khufu_opinion ensures all requests join a new transaction so that if
 any error/exception occurs, the transaction is automatically
 rolled back.  Any db sessions created via the provided session
 factory automatically join this transaction and will be rolled back
@@ -129,7 +129,7 @@ Traversal
 ---------
 
 The Pyramid_ web application framework provides a convenient mechanism
-to traverse an object graph and map that graph to url's.  RapidGiza stores
+to traverse an object graph and map that graph to url's.  khufu_opinion stores
 it's traversal mechanism inside of the ``traversal.py`` file.
 
 Credits
@@ -146,4 +146,4 @@ Credits
 .. _transaction: http://pypi.python.org/pypi/transaction
 .. _`repoze.tm2`: http://pypi.python.org/pypi/repoze.tm2
 .. _`Khufu-Script`: http://pypi.python.org/pypi/Khufu-Script
-.. _RapidGiza: http://pypi.python.org/pypi/RapidGiza
+.. _khufu_opinion: http://pypi.python.org/pypi/khufu_opinion

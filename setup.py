@@ -13,7 +13,7 @@ required = [
     'WebError',
 ]
 
-setup(name='RapidGiza',
+setup(name='khufu_opinion',
       version='0.2.1',
       description='Set of paster templates for rapid Pyramid development',
       long_description=README + '\n\n' + CHANGES,
@@ -27,7 +27,7 @@ setup(name='RapidGiza',
         ],
       author='Rocky Burt',
       author_email='rocky@serverzen.com',
-      url='https://github.com/serverzen/RapidGiza',
+      url='https://github.com/serverzen/khufu_opinion',
       keywords='web wsgi bfg pylons pyramid sqlalchemy khufu jinja2',
       packages=find_packages(),
       include_package_data=True,
@@ -35,6 +35,6 @@ setup(name='RapidGiza',
       install_requires=required,
       entry_points="""
         [paste.paster_create_template]
-        rapidgiza=rapidgiza.paster:RapidGizaProjectTemplate
+        khufu_opinion=khufu_opinion.paster:KhufuOpinionProjectTemplate
       """
       )
