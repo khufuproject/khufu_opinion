@@ -8,13 +8,13 @@ CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
 required = [
     'pyramid >= 1.0',
     'pyramid_jinja2',
-    'Khufu-SQLAHelper',
-    'Khufu-Script',
+    'khufu_sqlalchemy',
+    'clue_script',
     'WebError',
 ]
 
 setup(name='khufu_opinion',
-      version='0.2.1',
+      version='0.2.2',
       description='Set of paster templates for rapid Pyramid development',
       long_description=README + '\n\n' + CHANGES,
       classifiers=[
@@ -28,7 +28,7 @@ setup(name='khufu_opinion',
       author='Rocky Burt',
       author_email='rocky@serverzen.com',
       url='https://github.com/serverzen/khufu_opinion',
-      keywords='web wsgi bfg pylons pyramid sqlalchemy khufu jinja2',
+      keywords='wsgi pylons pyramid sqlalchemy khufu jinja2',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,

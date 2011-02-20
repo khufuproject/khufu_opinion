@@ -3,6 +3,11 @@
 Changes
 =======
 
+0.2.2 - Feb 20, 2011
+--------------------
+
+  * Renamed from RapidGiza to khufu_opinion
+
 0.2.1 - Feb 16, 2011
 --------------------
 
