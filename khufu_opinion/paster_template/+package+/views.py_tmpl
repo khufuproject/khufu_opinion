@@ -1,18 +1,20 @@
-from {{package}} import models, traversal
 from pyramid.view import view_config
 
+from {{package}}.models import MyDataModel
+from {{package}}.resources import Root
 
-@view_config(context=traversal.Root,
-             renderer='main.jinja2')
+
+@view_config(context=Root,
+             renderer='templates/main.jinja2')
 def main(request):
     return {'project': '{{project}}',
-            'static': request.application_url+'/{{package}}-static'}
+            'static_url': lambda x: request.static_url('{{package}}:static/' + x)}
 
 
 ## example view
-# @view_config(context=traversal.Root,
-#              name='mydata.html',
-#              renderer='mydata.jinja2')
-# def mydataview(request):
-#     mydata = request.db.query(models.MyDataModel).all()
-#     return {'mydata': mydata}
+@view_config(context=MyDataModel,
+             name='mydata.html',
+             renderer='templates/mydata.jinja2')
+def mydataview(request):
+    mydata = request.db.query(MyDataModel).all()
+    return {'mydata': mydata}

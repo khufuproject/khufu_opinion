@@ -29,7 +29,7 @@ Install khufu_opinion into a Python environment (ie virtualenv_) with a working
 Paster.  Once this has been done, you can create a new khufu_opinion project
 by simply running (where *Something* is the name of your new egg)::
 
-  paster create -t khufu_opinion Something
+  paster create -t khufu_starter Something
 
 Once the template egg has been created you should set it up in develop
 mode to start working on your project.
@@ -44,12 +44,15 @@ Using the New Project
 Command Runner
 --------------
 
-By default a new script named *something* will be created in the ``bin``
+By default a new script named ``something-manage`` will be created in the ``bin``
 directory of your python envionment.  This script is a command
 runner that provides the following::
 
   Commands:
       runserver             Run a reloadable development web server.
+      loaddata              Add data based on the YAML from filename
+      shell                 Launch a Python shell
+      syncdb                Ensure all database tables exist
 
 Paster
 ------
@@ -59,9 +62,6 @@ directory.  This can be used with the standard ``paster`` commands::
 
   # use builtin paster http server
   paster serve development.ini
-
-  # use the pyramid pshell command
-  paster --plugin=pyramid pshell development.ini pyramid-Something
 
 Deployment with Apache+mod_wsgi
 -------------------------------
@@ -116,7 +116,7 @@ Transaction Support
 -------------------
 
 Transactions are used to ensure all or nothing is performed.  With the
-very useful `repoze.tm2`_ and transaction_ packages this can
+very useful `pyramid_tm`, `repoze.tm2`_, and transaction_ packages this can
 be accomplished easily in Pyramid_ applications.
 
 khufu_opinion ensures all requests join a new transaction so that if
@@ -130,7 +130,7 @@ Traversal
 
 The Pyramid_ web application framework provides a convenient mechanism
 to traverse an object graph and map that graph to url's.  khufu_opinion stores
-it's traversal mechanism inside of the ``traversal.py`` file.
+it's traversal mechanism inside of the ``resources.py`` file.
 
 Credits
 =======

@@ -7,23 +7,22 @@ CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
 
 required = [
     'pyramid >= 1.0',
+    'Chameleon < 2.0dev',
     'pyramid_jinja2',
     'khufu_sqlalchemy',
-    'clue_script',
-    'WebError',
+    'khufu_script',
 ]
 
 setup(name='khufu_opinion',
-      version='0.2.2',
+      version='0.5',
       description='Set of paster templates for rapid Pyramid development',
       long_description=README + '\n\n' + CHANGES,
+      license='BSD',
       classifiers=[
+        "License :: OSI Approved :: BSD License",
         "Intended Audience :: Developers",
         "Programming Language :: Python",
-        "Topic :: Internet :: WWW/HTTP",
-        "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Internet :: WWW/HTTP :: WSGI",
-        "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
         ],
       author='Rocky Burt',
       author_email='rocky@serverzen.com',
@@ -35,6 +34,6 @@ setup(name='khufu_opinion',
       install_requires=required,
       entry_points="""
         [paste.paster_create_template]
-        khufu_opinion=khufu_opinion.paster:KhufuOpinionProjectTemplate
+        khufu_starter=khufu_opinion.paster:KhufuOpinionProjectTemplate
       """
       )

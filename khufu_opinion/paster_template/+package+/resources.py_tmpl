@@ -1,0 +1,17 @@
+from khufu_sqlalchemy import dbsession
+
+
+class Locatable(object):
+    __name__ = None
+    __parent__ = None
+
+
+class Root(Locatable):
+
+    def __init__(self, request):
+        self.request = request
+
+
+def get_root(request):
+    root = Root(request)
+    return root

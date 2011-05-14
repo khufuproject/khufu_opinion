@@ -1,0 +1,16 @@
+import khufu_script
+
+db_metadatas = ['{{package}}.models.Base.metadata']
+settings = {
+    'sqlalchemy.url': 'sqlite:///{{package}}.db?check_same_thread=False'
+    }
+
+main = khufu_script.make_manager(name='{{project}}',
+                                 app_factory='{{package}}.app',
+                                 config_filename='{{package}}-settings.ini',
+                                 db_metadatas=db_metadatas,
+                                 settings=settings).main
+
+
+if __name__ == '__main__':
+    main()

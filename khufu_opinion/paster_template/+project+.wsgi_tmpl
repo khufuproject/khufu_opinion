@@ -1,2 +1,2 @@
-from {{package}} import make_app
-application = make_app({})
+from {{package}} import app
+application = app({})

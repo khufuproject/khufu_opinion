@@ -3,28 +3,25 @@ import os
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
-README = open(os.path.join(here, 'README.txt')).read()
-CHANGES = open(os.path.join(here, 'CHANGES.txt')).read()
+README = open(os.path.join(here, 'README.rst')).read()
+CHANGES = open(os.path.join(here, 'CHANGES.rst')).read()
 
 required = [
     'pyramid >= 1.0',
+    'Chameleon < 2.0dev',
     'pyramid_jinja2',
     'khufu_sqlalchemy',
-    'clue_script',
-    'WebError',
+    'khufu_script',
 ]
-
-try:
-    import argparse
-except ImportError:
-    required.append('argparse')
 
 
 setup(name='{{project}}',
       version='0.1',
       description='{{project}} - a web application',
       long_description=README + '\n\n' + CHANGES,
+      license='BSD',
       classifiers=[
+        "License :: OSI Approved :: BSD License",
         "Development Status :: 3 - Alpha",
         "Programming Language :: Python",
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
@@ -42,7 +39,7 @@ setup(name='{{project}}',
       test_suite="{{package}}.tests",
       entry_points = """
       [console_scripts]
-      {{package}}={{package}}.main:main
+      {{package}}-manage={{package}}.manage:main
       [paste.app_factory]
       app={{package}}.main:make_app
       """
