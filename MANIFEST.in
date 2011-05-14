@@ -1,1 +1,1 @@
-global-include *.ini *.jinja2 *.css *.png *.ico *.gif *.py_tmpl *.ini_tmpl *.jinja2_tmpl *.txt_tmpl *.wsgi_tmpl *.in_tmpl *.js *.txt
+global-include *.ini *.rst *.jinja2 *.css *.png *.ico *.gif *.py_tmpl *.ini_tmpl *.jinja2_tmpl *.txt_tmpl *.wsgi_tmpl *.in_tmpl *.js *.txt *.rst_tmpl

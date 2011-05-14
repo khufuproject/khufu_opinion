@@ -1,7 +1,12 @@
-.. -*-rst-*-
-
 Changes
 =======
+
+0.5 - May 14, 2011
+------------------
+
+ * Now uses khufu_script
+
+ * ``traversals`` module is now ``resources``
 
 0.2.2 - Feb 20, 2011
 --------------------
