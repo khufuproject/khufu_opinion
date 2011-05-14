@@ -5,7 +5,7 @@ from {{package}}.resources import Root
 
 
 @view_config(context=Root,
-             renderer='templates/main.jinja2')
+             renderer='templates/default.jinja2')
 def main(request):
     return {'project': '{{project}}',
             'static_url': lambda x: request.static_url('{{package}}:static/' + x)}
